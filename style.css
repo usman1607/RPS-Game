@@ -18,7 +18,6 @@ header {
 header>h1 {
     color: #25272E;
     text-align: center;
-    font-family: Asap, sans-serif;
 }
 
 .scoreboard {
@@ -30,7 +29,6 @@ header>h1 {
     color: white;
     font-size: 46px;
     padding: 15px 20px;
-    font-family: Asap, sans-serif;
     position: relative;
 }
 

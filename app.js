@@ -35,6 +35,48 @@ function win(user, comp) {
 
   user_div.classList.add("success-glow");
   setTimeout(() => user_div.classList.remove("success-glow"), 300);
+
+  // if (userScore_span.innerHTML === 10) {
+  //   Swal.fire({
+  //     title: 'Congratulations!',
+  //     text: 'HURRAY!!! You win the game.',
+  //     imageUrl: '../images/img01.jpg',
+  //     imageWidth: 200,
+  //     imageHeight: 400,
+  //     imageAlt: 'Custom image',
+  //   })
+
+  //   window.location.reload();
+  // };
+}
+
+function youWin(){
+
+  userScore_span.innerHTML = userScore;
+  compScore_span.innerHTML = computerScore;
+
+  if ((userScore == 10) && (computerScore < 10)) {
+    Swal.fire({
+      title: 'Congratulations!',
+      text: 'HURRAY!!! You win the game.',
+      imageUrl: 'images/img01.jpg',
+      imageWidth: 150,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      // timer: 5000
+    }).then(() => window.location.reload());
+  }
+  else if ((computerScore == 10) && (userScore < 10)) {
+    Swal.fire({
+      title: 'HUUPPYYYYY!!!!',
+      text: 'HUPPY!!! You loose the game.',
+      imageUrl: 'images/img02.jpg',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      // timer: 5000
+    }).then(() => window.location.reload());
+  }
 }
 
 function lose(user, comp) {
@@ -50,6 +92,19 @@ function lose(user, comp) {
   )}${smallUWord} loses to ${convertToWord(comp)}${smallCWord}. You lost!"`;
   user_div.classList.add("danger-glow");
   setTimeout(() => user_div.classList.remove("danger-glow"), 300);
+
+  // if (compScore_span.innerHTML === 10) {
+  //   Swal.fire({
+  //     title: 'HUUPPYYYYY!!!!',
+  //     text: 'HUPPY!!! You loose the game.',
+  //     imageUrl: '../images/img02.jpg',
+  //     imageWidth: 400,
+  //     imageHeight: 200,
+  //     imageAlt: 'Custom image',
+  //   })
+
+  //   window.location.reload();
+  // };
 }
 
 function draw(user, comp) {
@@ -66,6 +121,7 @@ function draw(user, comp) {
 }
 
 function game(userChoice) {
+  
   const compChoice = getCompChoice();
   switch (userChoice + compChoice) {
     case "rs":
@@ -84,6 +140,7 @@ function game(userChoice) {
       draw(userChoice, compChoice);
       break;
   }
+  youWin();
 }
 
 function main() {
